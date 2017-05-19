@@ -89,6 +89,29 @@ app.post('/addNew', bodyParser.urlencoded({
 		});
 	};
 });
+
+// Ajax!
+app.post('/autocomplete', bodyParser.urlencoded({extended: true
+	}), function (request, response) {
+		var input = request.body.input;
+		findUsers(input, function (results){
+			response.send(results);
+		});
+	});
+		function findUsers(input, onComplete) {
+		fs.readFile('./users.json', function (error, data) {
+		users = JSON.parse(data);
+
+		var results = [];
+		users.forEach(function (user){
+			if(user.firstname.startsWith(input) || user.lastname.startsWith(input)) {
+		 	results.push(user);
+		 }
+		});
+		onComplete(results);
+	});
+	};
+
 var server = app.listen(3000, function() {
 	console.log('Example app listening on port: ' + server.address().port);
 });
