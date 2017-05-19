@@ -1,0 +1,11 @@
+html
+	head
+		style
+			include ../../css/style.css
+	body
+		a(href='/form') Form
+		br
+		a(href='/create') Create new user
+		h1 People
+		each val in user
+			p= val.firstname

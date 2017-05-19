@@ -1,0 +1,17 @@
+html
+	head
+		style
+			include ../../css/style.css
+	body
+		a(href='/') Back
+		h1 Create new user
+		form(action='/addNew' method='post')
+			label First Name:
+			input(name='firstname')
+			br
+			label Last Name:
+			input(name='lastname')
+			br
+			label Email:
+			input(name='email')
+			input(type='submit' value='create user')
