@@ -21,7 +21,6 @@ app.get('/', function(request, response) {
 	});
 });
 
-
 // route 2: renders a page that displays a form which is your search bar.
 
 app.get('/form', function(request, response) {
