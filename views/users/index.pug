@@ -18,13 +18,15 @@ html
 			}
 	body
 		nav(class="navbar navbar-light bg-faded")
-			a(class="navbar-brand" href='/') Ajax App
-			ul.nav.navbar-nav.float-xs-right
-				li.nav-item
-					a(class="navbar-text" href='/create') Create new user
-				li.nav-item
-					a(class="navbar-text" href="/form") Search
-		h1 People
+		ul.nav.nav-tabs
+			li.active(role='presentation')
+				a(href='/') Ajax DB App
+			li(role='presentation')
+				a(href='/create') Create
+			li(role='presentation')
+				a(href='/form') Search
+							
+		h1 Database
 		each val in user
 			p= val.firstname
 
