@@ -15,48 +15,51 @@ html
 		.container
 			.row
 				.col-xs-6.offset-xs-3
-					form(action='/search' method='post')
+					form(action='/search' method='post' onsubmit='time')
 						.form-group
 							h1.text-xs-center Search Users
 							hr
-							input(type="text" id="input_val" name="searching" placeholder="Kerem")
+							input(type="text" id="input_val" name="searching" placeholder="Search" onkeyup="sendPostRequestWhenUserTypes(this.value)" list="suggestion") 
+							datalist#suggestion
+								option#box(value="")
 							hr
 							button(type="submit" class="btn btn-success btn btn-lg") Search
 							div(id="displayUser")
 							
 							
 	script(src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js")
-	script(src="/js/custom.js")
 	script.
-				$(document).ready(function(){
-				$("#input_val").keyup(function(){
-					var input = $(this).val();
-					if(input.length === 0){
-				$('#displayUser').empty();
-			} else {
-				$.post('/autocomplete', {input: input}, function (results){
-				console.log(results);
-				$('#displayUser').empty();
-				if(results.length !== 0){
-					results.forEach(function (result){
-					var li = $('<li>');
-					li.html(result.firstname + " " + result.lastname);
-					$('#displayUser').append(li);
-					});
-					}
-					});
-					}
-					});
-					});
-	script.
-				var time = Date.now();
-				function sendPostRequestWhenUserTypes(typedIn) {
-				console.log(Date.now()-time);
-				if (Date.now()-time > 300) {
-					$.post("/suggestionfinder", {typedIn: typedIn}, function(data, status){
-						console.log(data)
-						document.getElementById('box').value = data
-						})
+			$(document).ready(function(){
+			$("#input_val").keyup(function(){
+				var input = $(this).val();
+				if(input.length === 0){
+					$('#displayUser').empty();
+				} else {
+					$.post('/autocomplete', {input: input}, function (results){
+						console.log(results);
+						$('#displayUser').empty();
+						if(results.length !== 0){
+							results.forEach(function (result){
+								var li = $('<li>');
+								li.html(result.firstname + " " + result.lastname);
+								$('#displayUser').append(li);
+
+
+			var time = Date.now();
+			function sendPostRequestWhenUserTypes(typedIn) {
+			console.log(Date.now()-time);
+			if (Date.now()-time > 300) {
+				$.post("/autocomplete", {typedIn: typedIn}, function(data, status){
+					console.log(data)
+					document.getElementById('box').value = data
+				})
+			}
+			time = Date.now();
+		}
+							});
 						}
-						time = Date.now();
-						}
+					});
+				}
+			});
+		});
+			
