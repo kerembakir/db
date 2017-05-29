@@ -21,11 +21,11 @@ html
             .form-group
               h1.text-xs-center Search Users
               hr
-              input(type="text" id="input_val" name="searching" placeholder="Search" onkeyup="sendRequest(this.value)" list="suggestion")
+              input(type="text" class="form-control" name="searching" placeholder="Search" onkeyup="sendRequest(this.value)" list="suggestion")
               datalist#suggestion
                 option#box(value="")
               hr
-              button(type="submit" class="btn btn-success btn btn-lg") Search
+              button(type="submit" class="btn btn-default btn btn-lg") Search
               div(id="displayUser")
 
 
