@@ -1,11 +1,27 @@
 html
-	head
-		style
-			include ../../css/style.css
-	body
-		a(href='/form') Form
-		br
-		a(href='/create') Create new user
-		h1 People
-		each val in user
-			p= val.firstname
+  head
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')
+    
+  body
+    nav(class="navbar navbar-light bg-faded")
+    ul.nav.nav-tabs
+      li.active(role='presentation')
+        a(href='/') Ajax DB App
+      li(role='presentation')
+        a(href='/create') Create
+      li(role='presentation')
+        a(href='/form') Search
+
+    .container
+      .row
+        .col-xs-6.offset-xs-3
+          h1.text-xl-center Database
+          hr
+          .container
+            .row
+              .col-lg-1.col-offset-6.centered
+                each val in user
+                  .card.card-block
+                    h4(class="card-title")= val.firstname + " " + val.lastname
+                    p(class="card-text")= "Email: " + val.email
