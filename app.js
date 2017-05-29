@@ -4,9 +4,10 @@ var fs = require('fs');
 var bodyParser = require('body-parser');
 
 app.use(bodyParser());
-
+app.use(express.static('public'));
 app.set('views', './views');
 app.set('view engine', 'pug');
+
 
 // route 1: renders a page that displays all your users.
 app.get('/', function(request, response) {
