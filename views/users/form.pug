@@ -17,11 +17,11 @@ html
     .container
       .row
         .col-xs-6.offset-xs-3
-          form(action='/search' method='post' onsubmit='time')
+          form(action='/search' method='post' onsubmit='time' autocomplete="off")
             .form-group
               h1.text-xs-center Search Users
               hr
-              input(type="text" class="form-control" name="searching" placeholder="Search" onkeyup="sendRequest(this.value)" list="suggestion")
+              input(type="text" id="input_val" name="searching" placeholder="Search" onkeyup="sendRequest(this.value)" list="suggestion")
               datalist#suggestion
                 option#box(value="")
               hr
