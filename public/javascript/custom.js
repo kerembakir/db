@@ -1,17 +1,6 @@
 
 var time = Date.now();
 
-function sendRequest(typedIn) {
-  console.log(Date.now()-time);
-  if (Date.now()-time > 300) {
-    $.post("/autocomplete", {typedIn: typedIn}, function(data, status){
-      console.log(data)
-      document.getElementById('box').value = data
-    })
-  }
-  time = Date.now();
-}
-
 $(document).ready(function(){
   $("#input_val").keyup(function(){
     var input = $(this).val();
@@ -32,3 +21,15 @@ $(document).ready(function(){
     }
   });
 })
+
+function sendRequest(typedIn) {
+  console.log(Date.now()-time);
+  if (Date.now()-time > 300) {
+    $.post("/autocomplete", {typedIn: typedIn}, function(data, status){
+      console.log(data)
+      document.getElementById('box').value = data
+    })
+  }
+  time = Date.now();
+}
+

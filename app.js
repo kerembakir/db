@@ -94,6 +94,7 @@ app.post('/addNew', bodyParser.urlencoded({
 app.post('/autocomplete', bodyParser.urlencoded({extended: true
 	}), function (request, response) {
 		var input = request.body.input;
+		console.log("reached")
 		findUsers(input, function (results){
 			response.send(results);
 		});
