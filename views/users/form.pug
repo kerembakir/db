@@ -2,16 +2,16 @@ html
   head
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
   body
-    script(src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js")
-    script(src="/javascript/custom.js")
-    nav(class="navbar navbar-light bg-faded")
-      ul.nav.nav-tabs
-        li(role='presentation')
-          a(href='/') Ajax DB App
-        li(role='presentation')
-          a(href='/create') Create
-        li.active(role='presentation')
-          a(href='/form') Search
+  page-header
+  h1 DB  
+  nav(class="navbar navbar-light bg-faded")
+    ul.nav.nav-tabs
+      li(role='presentation')
+        a(href='/') Database
+      li(role='presentation')
+        a(href='/create') Create
+      li.active(role='presentation')
+        a(href='/form') Search
 
 
     .container
@@ -19,15 +19,17 @@ html
         .col-xs-6.offset-xs-3
           form(action='/search' method='post' onsubmit='time' autocomplete="off")
             .form-group
+              br
               h1.text-xs-center Search Users
               hr
               input(type="text" id="input_val" name="searching" placeholder="Search" onkeyup="sendRequest(this.value)" list="suggestion")
               datalist#suggestion
                 option#box(value="")
               hr
-              button(type="submit" class="btn btn-default btn btn-lg") Search
+              button(type="submit" class="btn btn-primary btn btn-lg") Search
               div(id="displayUser")
-
+  script(src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js")
+  script(src="/javascript/custom.js")
 
   
 
