@@ -19,13 +19,14 @@ html
         .col-xs-6.offset-xs-3
           form(action='/search' method='post' onsubmit='time' autocomplete="off")
             .form-group
+              br
               h1.text-xs-center Search Users
               hr
               input(type="text" id="input_val" name="searching" placeholder="Search" onkeyup="sendRequest(this.value)" list="suggestion")
               datalist#suggestion
                 option#box(value="")
               hr
-              button(type="submit" class="btn btn-default btn btn-lg") Search
+              button(type="submit" class="btn btn-primary btn btn-lg") Search
               div(id="displayUser")
   script(src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js")
   script(src="/javascript/custom.js")
