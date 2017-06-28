@@ -9,12 +9,14 @@
 
 ## Install
 
-```npm install
+```
+npm install
 ```
 
 ## Usage
 
-```node app
+```
+node app
 ```
 
 ![banner](http://members.chello.nl/m.van.duren/img/db-1.png)
