@@ -1,9 +1,5 @@
 # User Information App
 
-![banner](http://members.chello.nl/m.van.duren/img/db-1.png)
-
-
-> Bulletin board application.
 
 ## Table of Contents
 
@@ -13,13 +9,15 @@
 
 ## Install
 
-```
+```npm install
 ```
 
 ## Usage
 
+```node app
 ```
-```
+
+![banner](http://members.chello.nl/m.van.duren/img/db-1.png)
 
 ## License
 
